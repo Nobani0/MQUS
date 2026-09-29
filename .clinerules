@@ -1,0 +1,26 @@
+# MQUS App Rules & Anti-Slop Protocol
+
+## 1. Response Constraints & Anti-Slop
+- Do not rewrite entire files; provide targeted line diffs or specific functions only.
+- Never generate incomplete stubs or `// TODO` mock comments; write production-ready code.
+- Do not introduce new npm libraries or dependencies unless explicitly authorized.
+- Omit conversational pleasantries, explanations, and apologies; output actionable code directly.
+- Preserve existing comments, formatting, and working code structure.
+
+## 2. Architecture & Tech Stack
+- Mobile Client: React Native with Expo (Compatible with Expo Go, functional components, React Hooks, StyleSheet).
+- Navigation: React Navigation / Expo Router.
+- Backend & Database: Supabase PostgreSQL (Public Schema, Supabase JS Client).
+- Language/Localization: Simple and clear Arabic (Jordanian context: terms like "حلاق", "زبون", "حجز موعد", "المحفظة"). All user interface text must be in clean, simplified Arabic.
+
+## 3. Code Standards & React Native Patterns
+- Use PascalCase for components, camelCase for variables/functions, and kebab-case for file names.
+- Style components strictly using React Native `StyleSheet.create`; do not use HTML tags or web Tailwind classes.
+- Use explicit boolean flags for state (e.g., `isLoading`, `hasError`, `isSubmitting`).
+- Handle asynchronous calls inside `try/catch` blocks with intuitive user feedback (Alert/Toast).
+
+## 4. Business Logic (MQUS App Specifics)
+- Free Platform Model: Platform is 100% free; no commission deductions.
+- Dual User Roles: Customer accounts and Barber accounts with strict role separation.
+- Core Features: Nearby location discovery, Active/Closed toggle for barbers, appointment booking, portfolio gallery, direct phone dialer (`tel:` protocol), chat, voice note UI integration, star rating & review (only after completed appointments), and a monthly resetting barber wallet tracker.
+- Destructive Actions: Canceling appointments or resetting actions must trigger a confirmation alert.
